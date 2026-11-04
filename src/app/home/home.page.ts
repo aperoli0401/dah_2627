@@ -45,7 +45,7 @@ export class HomePage {
       paginas: 328,
       descripcion: "Novela política de ficción sobre un régimen totalitario.",
       completado: false,
-      puntuacion: 4,
+      puntuacion: 4, 
       imagen: ""
     }
   ];
