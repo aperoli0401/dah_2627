@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { Libro } from '../interfaces/libros';
+import { CommonModule } from '@angular/common';
+import { 
+  IonContent, 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle 
+} from '@ionic/angular';
+import { TaskItemComponent } from '../components/libro-item/libro-item.component'; // Ajusta la ruta según dónde tengas tu componente
 
 @Component({
   selector: 'app-home',
@@ -7,10 +14,16 @@ import { Libro } from '../interfaces/libros';
   styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [
+    CommonModule,
+    IonContent,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    TaskItemComponent
   ]
 })
 export class HomePage {
-  listaDeLibros: Libro[] = [
+  listaDeLibros = [
     {
       id: 1,
       titulo: "Don Quijote de la Mancha",

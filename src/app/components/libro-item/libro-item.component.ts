@@ -15,12 +15,12 @@ import { CommonModule } from '@angular/common';
 })
 export class TaskItemComponent {
 
-  @Input() libros!: Libro;
-
+  @Input() libros: any;
+  
   constructor() { }
 
   mostrarDetalles() {
-    console.log('Datos de la tarea:', this.libros);
+    console.log('Datos del libro:', this.libros);
   }
 
 }
