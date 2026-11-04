@@ -1,12 +1,12 @@
 export interface Libro {
-id: number,
-titulo: string,
-autor: string,
-genero: string,
-anioPublicacion: number,
-paginas: number,
-descripcion: string,
-completado: boolean,
-puntuacion: number, // 0 a 5
-imagen: string
+  id: number;
+  titulo: string;
+  autor: string;
+  genero: string;
+  anioPublicacion: number;
+  paginas: number;
+  descripcion: string;
+  completado: boolean;
+  puntuacion: number; // 0 a 5
+  imagen: string;
 }

@@ -1,377 +1,41 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular'; // Importamos el molde
 import { Libro } from '../interfaces/libros';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  standalone: true,
+  imports: [
+  ]
 })
 export class HomePage {
-
-  listaLibros: Libro[] = [
+  listaDeLibros: Libro[] = [
     {
       id: 1,
       titulo: "Don Quijote de la Mancha",
       autor: "Miguel de Cervantes",
-      genero: "Novela clásica",
+      genero: "Novela caballeresca",
       anioPublicacion: 1605,
       paginas: 863,
-      descripcion: "Las aventuras del hidalgo Alonso Quijano y su fiel escudero Sancho Panza.",
+      descripcion: "Las aventuras de un hidalgo que enloquece leyendo libros de caballería.",
       completado: true,
       puntuacion: 5,
       imagen: ""
     },
     {
       id: 2,
-      titulo: "Cien años de soledad",
-      autor: "Gabriel García Márquez",
-      genero: "Realismo mágico",
-      anioPublicacion: 1967,
-      paginas: 417,
-      descripcion: "La saga de la familia Buendía a lo largo de varias generaciones en Macondo.",
-      completado: true,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 3,
       titulo: "1984",
       autor: "George Orwell",
-      genero: "Distopía",
+      genero: "Ciencia ficción distópica",
       anioPublicacion: 1949,
       paginas: 328,
-      descripcion: "Una crítica sombría sobre el totalitarismo y la vigilancia masiva del Gran Hermano.",
+      descripcion: "Novela política de ficción sobre un régimen totalitario.",
       completado: false,
       puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 4,
-      titulo: "El principito",
-      autor: "Antoine de Saint-Exupéry",
-      genero: "Fábula",
-      anioPublicacion: 1943,
-      paginas: 96,
-      descripcion: "Un aviador perdido en el desierto conoce a un pequeño príncipe de otro planeta.",
-      completado: true,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 5,
-      titulo: "Fahrenheit 451",
-      autor: "Ray Bradbury",
-      genero: "Ciencia ficción",
-      anioPublicacion: 1953,
-      paginas: 249,
-      descripcion: "En un futuro donde los libros están prohibidos, un bombero cuestiona su misión de quemarlos.",
-      completado: false,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 6,
-      titulo: "Orgullo y prejuicio",
-      autor: "Jane Austen",
-      genero: "Romance histórico",
-      anioPublicacion: 1813,
-      paginas: 432,
-      descripcion: "Elizabeth Bennet y Fitzwilliam Darcy deben superar sus prejuicios para encontrar el amor.",
-      completado: false,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 7,
-      titulo: "El hobbit",
-      autor: "J.R.R. Tolkien",
-      genero: "Fantasía",
-      anioPublicacion: 1937,
-      paginas: 310,
-      descripcion: "Bilbo Bolsón emprende un viaje inesperado con enanos para recuperar un tesoro custodiado por un dragón.",
-      completado: true,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 8,
-      titulo: "Crónica de una muerte anunciada",
-      autor: "Gabriel García Márquez",
-      genero: "Misterio",
-      anioPublicacion: 1981,
-      paginas: 120,
-      descripcion: "La reconstrucción de los hechos de un asesinato violento que todo el pueblo sabía que ocurriría.",
-      completado: true,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 9,
-      titulo: "Crimen y castigo",
-      autor: "Fiódor Dostoyevski",
-      genero: "Novela psicológica",
-      anioPublicacion: 1866,
-      paginas: 672,
-      descripcion: "Raskólnikov comete un asesinato justificándolo por su intelecto, enfrentándose a la culpa devoradora.",
-      completado: false,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 10,
-      titulo: "Un mundo feliz",
-      autor: "Aldous Huxley",
-      genero: "Ciencia ficción",
-      anioPublicacion: 1932,
-      paginas: 288,
-      descripcion: "Una sociedad futurista tecnológicamente avanzada pero desprovista de emociones humanas libres.",
-      completado: false,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 11,
-      titulo: "La sombra del viento",
-      autor: "Carlos Ruiz Zafón",
-      genero: "Misterio",
-      anioPublicacion: 2001,
-      paginas: 576,
-      descripcion: "Un joven encuentra un libro maldito en el Cementerio de los Libros Olvidados de Barcelona.",
-      completado: true,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 12,
-      titulo: "Rayuela",
-      autor: "Julio Cortázar",
-      genero: "Ficción experimental",
-      anioPublicacion: 1963,
-      paginas: 600,
-      descripcion: "Una contra-novela que propone múltiples itinerarios de lectura cruzando París y Buenos Aires.",
-      completado: false,
-      puntuacion: 3,
-      imagen: ""
-    },
-    {
-      id: 13,
-      titulo: "El señor de los anillos: La comunidad del anillo",
-      autor: "J.R.R. Tolkien",
-      genero: "Fantasía épica",
-      anioPublicacion: 1954,
-      paginas: 423,
-      descripcion: "Frodo Bolsón recibe el encargo de destruir el Único Anillo en los fuegos del Monte del Destino.",
-      completado: true,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 14,
-      titulo: "Ficciones",
-      autor: "Jorge Luis Borges",
-      genero: "Relatos cortos",
-      anioPublicacion: 1944,
-      paginas: 224,
-      descripcion: "Colección de relatos laberínticos sobre espejos, bibliotecas infinitas y paradojas lógicas.",
-      completado: false,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 15,
-      titulo: "Ensayo sobre la ceguera",
-      autor: "José Saramago",
-      genero: "Ficción alegórica",
-      anioPublicacion: 1995,
-      paginas: 328,
-      descripcion: "Una epidemia repentina de ceguera blanca sume a la sociedad en el caos y la supervivencia deshumanizada.",
-      completado: true,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 16,
-      titulo: "Pedro Páramo",
-      autor: "Juan Rulfo",
-      genero: "Realismo mágico",
-      anioPublicacion: 1955,
-      paginas: 132,
-      descripcion: "Juan Preciado llega al pueblo desértico de Comala buscando a su padre, encontrando solo murmullos.",
-      completado: false,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 17,
-      titulo: "El perfume",
-      autor: "Patrick Süskind",
-      genero: "Novela histórica",
-      anioPublicacion: 1985,
-      paginas: 255,
-      descripcion: "Jean-Baptiste Grenouille posee un olfato sobrehumano que lo obsesiona hasta cometer crímenes.",
-      completado: true,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 18,
-      titulo: "Metamorfosis",
-      autor: "Franz Kafka",
-      genero: "Ficción absurda",
-      anioPublicacion: 1915,
-      paginas: 96,
-      descripcion: "Gregorio Samsa despierta una mañana transformado en un monstruoso insecto.",
-      completado: true,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 19,
-      titulo: "Frankenstein",
-      autor: "Mary Shelley",
-      genero: "Terror gótico",
-      anioPublicacion: 1818,
-      paginas: 280,
-      descripcion: "Un científico ambicioso crea vida artificial a partir de restos humanos, rechazando su creación.",
-      completado: false,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 20,
-      titulo: "El retrato de Dorian Gray",
-      autor: "Oscar Wilde",
-      genero: "Ficción filosófica",
-      anioPublicacion: 1890,
-      paginas: 254,
-      descripcion: "Un joven permanece eternamente joven mientras su retrato al óleo envejece y muestra sus pecados.",
-      completado: true,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 21,
-      titulo: "Los miserables",
-      autor: "Victor Hugo",
-      genero: "Novela histórica",
-      anioPublicacion: 1862,
-      paginas: 1462,
-      descripcion: "La vida de Jean Valjean y su lucha por la redención tras pasar diecinueve años en prisión.",
-      completado: false,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 22,
-      titulo: "Drácula",
-      autor: "Bram Stoker",
-      genero: "Terror gótico",
-      anioPublicacion: 1897,
-      paginas: 418,
-      descripcion: "El conde vampiro viaja desde Transilvania a Inglaterra para propagar la maldición de los no muertos.",
-      completado: false,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 23,
-      titulo: "El viejo y el mar",
-      autor: "Ernest Hemingway",
-      genero: "Aventura",
-      anioPublicacion: 1952,
-      paginas: 128,
-      descripcion: "Un anciano pescador cubano lucha en solitario contra un pez espada gigante en el Golfo.",
-      completado: true,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 24,
-      titulo: "La metamorfosis de las plantas",
-      autor: "Johann Wolfgang von Goethe",
-      genero: "Ensayo científico",
-      anioPublicacion: 1790,
-      paginas: 120,
-      descripcion: "Ensayo botánico sobre la morfología vegetal y el desarrollo de las estructuras de las flores.",
-      completado: false,
-      puntuacion: 3,
-      imagen: ""
-    },
-    {
-      id: 25,
-      titulo: "Los juegos del hambre",
-      autor: "Suzanne Collins",
-      genero: "Distopía juvenil",
-      anioPublicacion: 2008,
-      paginas: 374,
-      descripcion: "En las ruinas de Norteamérica, tributos jóvenes luchan a muerte en una arena televisada.",
-      completado: true,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 26,
-      titulo: "Harry Potter y la piedra filosofal",
-      autor: "J.K. Rowling",
-      genero: "Fantasía",
-      anioPublicacion: 1997,
-      paginas: 309,
-      descripcion: "Un niño huérfano descubre en su undécimo cumpleaños que es un mago y acude a Hogwarts.",
-      completado: true,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 27,
-      titulo: "La casa de los espíritus",
-      autor: "Isabel Allende",
-      genero: "Realismo mágico",
-      anioPublicacion: 1982,
-      paginas: 490,
-      descripcion: "Cuatro generaciones de la familia Trueba viven las turbulentas transformaciones de su país.",
-      completado: false,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 28,
-      titulo: "Sapiens: De animales a dioses",
-      autor: "Yuval Noah Harari",
-      genero: "Historia",
-      anioPublicacion: 2011,
-      paginas: 496,
-      descripcion: "Un recorrido por la historia de la humanidad desde la evolución de Homo sapiens hasta el presente.",
-      completado: true,
-      puntuacion: 5,
-      imagen: ""
-    },
-    {
-      id: 29,
-      titulo: "La metamorfosis del dolor",
-      autor: "Virginia Woolf",
-      genero: "Ficción reflexiva",
-      anioPublicacion: 1927,
-      paginas: 210,
-      descripcion: "Exploración de la conciencia humana, la pérdida y el paso inevitable del tiempo.",
-      completado: false,
-      puntuacion: 4,
-      imagen: ""
-    },
-    {
-      id: 30,
-      titulo: "El nombre de la rosa",
-      autor: "Umberto Eco",
-      genero: "Misterio histórico",
-      anioPublicacion: 1980,
-      paginas: 512,
-      descripcion: "Un fraile franciscano investiga una serie de misteriosas muertes en una abadía benedictina del siglo XIV.",
-      completado: false,
-      puntuacion: 5,
       imagen: ""
     }
   ];
-  
+
   constructor() {}
 }
