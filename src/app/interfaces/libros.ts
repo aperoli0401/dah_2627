@@ -7,6 +7,7 @@ export interface Libro {
   paginas: number;
   descripcion: string;
   completado: boolean;
-  puntuacion: number; // 0 a 5
+  puntuacion: number; // De 0 a 5
   imagen: string;
+  destacado?: boolean; // Nueva propiedad añadida
 }

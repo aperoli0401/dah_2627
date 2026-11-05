@@ -1,13 +1,23 @@
-<ion-card>
+<ion-card *ngIf="libros" [class.borde-destacado]="libros.destacado">
   <ion-item>
-    <ion-checkbox
-      slot="start"
-      [checked]="libros.completada">
+    <ion-checkbox 
+      slot="start" 
+      [checked]="libros.completado"
+      (ionChange)="libros.completado = $event.detail.checked">
     </ion-checkbox>
-
-    <ion-label [class.tachado]="libros.completada">
-      {{ libros.titulo }}
+    
+    <ion-label [class.tachado]="libros.completado">
+      {{ libros.titulo | uppercase }}
     </ion-label>
+
+    <ion-select 
+      slot="end" 
+      interface="popover" 
+      [value]="libros.destacado" 
+      (ionChange)="libros.destacado = $event.detail.value">
+      <ion-select-option [value]="false">Normal</ion-select-option>
+      <ion-select-option [value]="true">Favorito</ion-select-option>
+    </ion-select>
 
     <ion-button (click)="mostrarDetalles()" slot="end">
       Ver
