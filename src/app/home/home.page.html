@@ -1,40 +1,36 @@
-<!-- Contenido de: src/app/home/home.page.html -->
-<app-header></app-header>
-
-<ion-content>
-  <!-- Tu lista de libros actual -->
-</ion-content>
-
-<!-- La cabecera principal, visible en la parte superior de la pantalla -->
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Biblioteca
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Biblioteca</ion-title>
+    <!-- Contenedor de botones situado fuera de ion-title con slot="end" -->
+    <ion-buttons slot="end">
+      <ion-button routerLink="/ajustes">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <!-- Esta segunda cabecera crea el efecto de título grande que se encoge al hacer scroll -->
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar color="primary">
       <ion-title size="large">Biblioteca</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <!-- Directiva *ngIf: este div solo existirá en el DOM si la condición es verdadera -->
-  <div *ngIf="listaDeLibros.length === 0" class="mensaje-vacio">
+  <!-- Mensaje si la lista está vacía con alineación de texto centralizada -->
+  <div *ngIf="listaDeLibros.length === 0" class="mensaje-vacio ion-text-center">
     <p>¡Enhorabuena!</p>
-    <p>No tienes tareas pendientes.</p>
+    <p>No hay libros pendientes en la biblioteca.</p>
   </div>
 
-  <!-- 
-    Directiva *ngFor: este es el bucle. 
-    - Por cada objeto 'tarea' que haya en el array 'listaDeTareas'...
-    - ...Angular creará una instancia de nuestro componente <app-task-item>.
-  -->
-  <app-task-item
-    *ngFor="let libros of listaDeLibros"
-    [libros]="libros"> <!-- Property Binding: le pasamos el objeto 'tarea' actual al @Input del componente hijo -->
-  </app-task-item>
+
+  <!-- Rejilla de Ionic con utilidades Flexbox -->
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col size="12" size-md="6" size-lg="4"
+        *ngFor="let libro of listaDeLibros">
+        <app-task-item [libro]="libro"></app-task-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -15,13 +15,13 @@ import { CommonModule, UpperCasePipe } from '@angular/common'; // Importamos tam
 })
 export class TaskItemComponent {
 
-  @Input() libros: Libro | undefined; // Permite manejar casos sin datos
+  @Input() libro: Libro | undefined; // Permite manejar casos sin datos
   
   constructor() { }
 
   mostrarDetalles() {
-    if (this.libros) {
-      console.log('Datos del libro:', this.libros);
+    if (this.libro) {
+      console.log('Datos del libro:', this.libro);
     }
   }
 
